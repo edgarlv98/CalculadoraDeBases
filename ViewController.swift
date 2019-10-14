@@ -16,18 +16,16 @@ let colorDisabledkeys = UIColor(red: 0.333, green: 0.333, blue: 0.333, alpha: 1)
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var numberonDisplay : Double = 0 //Numero en display
+    var numberOnDisplay : Int = 0 //Numero en display
     
     //Arreglo de bases que alimenta al UIPicker
     let numericalBases = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
     
     //Arreglo de botones que se iteran en la funcion enableDisableNumKeys
     var buttonArray : [UIButton]!
-    
-    
 
     @IBOutlet weak var lbDisplay: UILabel!
-    @IBOutlet weak var pvBases: UIPickerView!
+    @IBOutlet weak var pvBases: UIPickerView! //PickerView para cambiar de base numerica
     
     //Outlets de botones numericos
     @IBOutlet weak var bt0: UIButton!
@@ -47,9 +45,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var bt14: UIButton!
     @IBOutlet weak var bt15: UIButton!
     
-    //Outlets de complementos
-    @IBOutlet weak var btFPN: UIButton!
-    
     //Outlets de memoria
     @IBOutlet weak var btClearMem: UIButton! // MC
     @IBOutlet weak var btAddMem: UIButton! // M+
@@ -66,13 +61,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonArray = [bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15]
-        // Do any additional setup after loading the view.
+        pvBases.selectRow(8, inComponent: 0, animated: true)
     }
     
     //Se manda llamar al presionar una tecla numerica, usa el atributo tag de los botones numericos
     @IBAction func onNumberClicked(_ sender: UIButton) {
         lbDisplay.text = lbDisplay.text! + String(sender.tag-1)
-        numberonDisplay = Double(lbDisplay.text!)!
+        numberOnDisplay = Int(lbDisplay.text!)!
     }
     
     //La funcion recibe la base numerica y desabilita o habilita las teclas numericas debidas
@@ -105,48 +100,63 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if numericalBases[row] == "2" {
+            lbDisplay.text = String(numberOnDisplay, radix: 2)
             enableDisableNumKeys(base: 2)
         }
         if numericalBases[row] == "3" {
+            lbDisplay.text = String(numberOnDisplay, radix: 3)
             enableDisableNumKeys(base: 3)
         }
         if numericalBases[row] == "4" {
+            lbDisplay.text = String(numberOnDisplay, radix: 4)
            enableDisableNumKeys(base: 4)
         }
         if numericalBases[row] == "5" {
+            lbDisplay.text = String(numberOnDisplay, radix: 5)
            enableDisableNumKeys(base: 5)
         }
         if numericalBases[row] == "6" {
+            lbDisplay.text = String(numberOnDisplay, radix: 6)
            enableDisableNumKeys(base: 6)
         }
         if numericalBases[row] == "7" {
+            lbDisplay.text = String(numberOnDisplay, radix: 7)
            enableDisableNumKeys(base: 7)
         }
         if numericalBases[row] == "8" {
+            lbDisplay.text = String(numberOnDisplay, radix: 8)
            enableDisableNumKeys(base: 8)
         }
         if numericalBases[row] == "9" {
+            lbDisplay.text = String(numberOnDisplay, radix: 9)
            enableDisableNumKeys(base: 9)
         }
         if numericalBases[row] == "10" {
+            lbDisplay.text = String(numberOnDisplay, radix: 10)
            enableDisableNumKeys(base: 10)
         }
         if numericalBases[row] == "11" {
+            lbDisplay.text = String(numberOnDisplay, radix: 11)
            enableDisableNumKeys(base: 11)
         }
         if numericalBases[row] == "12" {
+            lbDisplay.text = String(numberOnDisplay, radix: 12)
            enableDisableNumKeys(base: 12)
         }
         if numericalBases[row] == "13" {
+            lbDisplay.text = String(numberOnDisplay, radix: 13)
            enableDisableNumKeys(base: 13)
         }
         if numericalBases[row] == "14" {
+            lbDisplay.text = String(numberOnDisplay, radix: 14)
            enableDisableNumKeys(base: 14)
         }
         if numericalBases[row] == "15" {
+            lbDisplay.text = String(numberOnDisplay, radix: 15)
            enableDisableNumKeys(base: 15)
         }
         if numericalBases[row] == "16" {
+            lbDisplay.text = String(numberOnDisplay, radix: 16)
            enableDisableNumKeys(base: 16)
         }
     }
